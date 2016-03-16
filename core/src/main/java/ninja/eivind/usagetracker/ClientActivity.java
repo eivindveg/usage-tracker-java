@@ -21,7 +21,24 @@ import java.util.UUID;
 public class ClientActivity {
 
     private UUID clientId;
-
     private String applicationId;
-    
+
+    public ClientActivity() {
+    }
+
+    public String getApplicationId() {
+        return applicationId;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public UUID getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(UUID clientId) {
+        this.clientId = clientId;
+    }
 }
