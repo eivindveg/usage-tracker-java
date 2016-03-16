@@ -16,11 +16,15 @@
 
 package ninja.eivind.usagetracker;
 
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class ClientActivity {
 
+    @NotNull
     private UUID clientId;
+
+    @NotNull
     private String applicationId;
 
     public ClientActivity() {
