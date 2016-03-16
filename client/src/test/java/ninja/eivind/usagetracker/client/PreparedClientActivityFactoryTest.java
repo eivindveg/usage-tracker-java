@@ -8,7 +8,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
 
@@ -32,7 +32,7 @@ public class PreparedClientActivityFactoryTest {
     public void testCreateActivity() throws Exception {
         ClientActivity activity = factory.createActivity();
 
-        Set<ConstraintViolation<ClientActivity>> expected = new HashSet<>();
+        Set<ConstraintViolation<ClientActivity>> expected = Collections.emptySet();
         Set<ConstraintViolation<ClientActivity>> actual = validator.validate(activity);
 
         assertEquals("Validating the object provided by the factory gives an empty set.", expected, actual);
