@@ -31,6 +31,11 @@ public class PreparedClientActivityFactory implements ClientActivityFactory {
     }
 
     public ClientActivity createActivity() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        ClientActivity clientActivity = new ClientActivity();
+
+        clientActivity.setClientId(clientId);
+        clientActivity.setApplicationId(applicationId);
+
+        return clientActivity;
     }
 }
