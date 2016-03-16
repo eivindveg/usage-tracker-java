@@ -16,6 +16,7 @@
 
 package ninja.eivind.usagetracker;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
@@ -25,6 +26,7 @@ public class ClientActivity {
     private UUID clientId;
 
     @NotNull
+    @Min(3L)
     private String applicationId;
 
     public ClientActivity() {
