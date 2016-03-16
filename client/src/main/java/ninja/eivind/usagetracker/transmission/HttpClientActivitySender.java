@@ -28,6 +28,7 @@ public class HttpClientActivitySender implements ClientActivitySender {
         this.url = url;
     }
 
+    @Override
     public void send(ClientActivity activity) {
         throw new UnsupportedOperationException("Not yet implemented");
     }

@@ -32,7 +32,7 @@ public class PreparedClientActivityFactoryTest {
     public void testCreateActivity() throws Exception {
         ClientActivity activity = factory.createActivity();
 
-        Set<ConstraintViolation<ClientActivity>> expected = new HashSet<ConstraintViolation<ClientActivity>>();
+        Set<ConstraintViolation<ClientActivity>> expected = new HashSet<>();
         Set<ConstraintViolation<ClientActivity>> actual = validator.validate(activity);
 
         assertEquals("Validating the object provided by the factory gives an empty set.", expected, actual);

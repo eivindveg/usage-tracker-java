@@ -30,6 +30,7 @@ public class PreparedClientActivityFactory implements ClientActivityFactory {
         this.applicationId = applicationId;
     }
 
+    @Override
     public ClientActivity createActivity() {
         ClientActivity clientActivity = new ClientActivity();
 
