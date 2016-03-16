@@ -18,18 +18,33 @@ package ninja.eivind.usagetracker.transmission;
 
 import ninja.eivind.usagetracker.ClientActivity;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.ValidationException;
+import javax.validation.Validator;
 import java.net.URL;
+import java.util.Optional;
+import java.util.Set;
 
 public class HttpClientActivitySender implements ClientActivitySender {
 
     private final URL url;
+    private final Validator validator;
 
     public HttpClientActivitySender(URL url) {
         this.url = url;
+        validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 
     @Override
     public void send(ClientActivity activity) {
+        Set<ConstraintViolation<ClientActivity>> violations = validator.validate(activity);
+        Optional<ConstraintViolation<ClientActivity>> firstViolation = violations.stream().findAny();
+
+        if (firstViolation.isPresent()) {
+            throw new ValidationException("Unable to transmit activity: " + firstViolation.get().getMessage());
+        }
+
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }
